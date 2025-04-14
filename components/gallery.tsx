@@ -8,75 +8,121 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Reveal } from "@/components/animations/reveal"
 import { StaggerChildren, StaggerItem } from "@/components/animations/stagger-children"
 
-export function Gallery() {
-  const [selectedImage, setSelectedImage] = React.useState<number | null>(null)
+type MediaItem = {
+  src: string
+  alt: string
+  caption: string
+  type: "image" | "video"
+}
 
-  const images = [
+type ImageGroup = {
+  cover: string
+  alt: string
+  caption: string
+  images: MediaItem[]
+}
+
+export function Gallery() {
+  const [selectedGroupIndex, setSelectedGroupIndex] = React.useState<number | null>(null)
+  const [selectedImageIndex, setSelectedImageIndex] = React.useState(0)
+
+  const imageGroups: ImageGroup[] = [
     {
-      src: "/placeholder.svg?height=400&width=600",
-      alt: "Project screenshot 1",
-      caption: "E-commerce dashboard interface",
+      cover: "/React_Native/uber clone/uberCloneThumbnaiol.png?height=400&width=600",
+      alt: "Uber App Clone",
+      caption: "Uber App Clone Screens",
+      images: [
+        {
+          src: "/React_Native/uber clone/enterOrigin.jpeg?height=400&width=600",
+          alt: "Home screen",
+          caption: "Home screen Uber App Clone",
+          type: "image",
+        },
+        {
+          src: "/React_Native/uber clone/enterDestination.jpeg?height=400&width=600",
+          alt: "Destination Selection",
+          caption: "Destination Selection Screen",
+          type: "image",
+        },
+        {
+          src: "/React_Native/uber clone/selectRide.jpeg?height=400&width=600",
+          alt: "Ride Selection video",
+          caption: "Ride Selection Screen",
+          type: "image",
+        },
+        {
+          src: "/React_Native/uber clone/mapScreen.jpeg?height=400&width=600",
+          alt: "On-Going Ride",
+          caption: "On-Going Ride Screen",
+          type: "image",
+        }, 
+        {
+          src: "/React_Native/uber clone/ScreenRecording.mp4?height=400&width=600",
+          alt: "APP Over View",
+          caption: "APP Over View",
+          type: "video",
+        },
+      ],
     },
     {
-      src: "/placeholder.svg?height=400&width=600",
-      alt: "Project screenshot 2",
-      caption: "Mobile app design for task management",
-    },
-    {
-      src: "/placeholder.svg?height=400&width=600",
-      alt: "Project screenshot 3",
-      caption: "Data visualization dashboard",
-    },
-    {
-      src: "/placeholder.svg?height=400&width=600",
-      alt: "Project screenshot 4",
-      caption: "Landing page design for SaaS product",
-    },
-    {
-      src: "/placeholder.svg?height=400&width=600",
-      alt: "Project screenshot 5",
-      caption: "User profile interface",
-    },
-    {
-      src: "/placeholder.svg?height=400&width=600",
-      alt: "Project screenshot 6",
-      caption: "Authentication flow screens",
+      cover: "/React_Native/fruitsShop/fruitsShopThumbnail.png?height=400&width=600",
+      alt: "Fruits Shop",
+      caption: "Fruits Shop",
+      images: [
+        {
+          src: "/React_Native/fruitsShop/homeScreen.jpeg?height=400&width=600",
+          alt: "Home Screen",
+          caption: "Home Screen",
+          type: "image",
+        },
+        {
+          src: "/React_Native/fruitsShop/productScreen.jpeg?height=400&width=600",
+          alt: "Product Details Screen",
+          caption: "Product Details Screen",
+          type: "image",
+        },
+        {
+          src: "/React_Native/fruitsShop/productDescription.jpeg?height=400&width=600",
+          alt: "Product in cart  Screen",
+          caption: "Product Added to Cart Details Screen",
+          type: "image",
+        },
+        {
+          src: "/React_Native/fruitsShop/cartPage.jpeg?height=400&width=600",
+          alt: "Cart Screen",
+          caption: "Cart Screen",
+          type: "image",
+        },
+        {
+          src: "/React_Native/fruitsShop/pushNotification.mp4",
+          alt: "Push Notification",
+          caption: "Push Notification",
+          type: "video",
+        },
+      ],
     },
   ]
 
-  const openLightbox = (index: number) => {
-    setSelectedImage(index)
+  const openGroup = (groupIndex: number) => {
+    setSelectedGroupIndex(groupIndex)
+    setSelectedImageIndex(0)
     document.body.style.overflow = "hidden"
   }
 
   const closeLightbox = () => {
-    setSelectedImage(null)
+    setSelectedGroupIndex(null)
+    setSelectedImageIndex(0)
     document.body.style.overflow = "auto"
   }
 
   const navigateImage = (direction: "prev" | "next") => {
-    if (selectedImage === null) return
-
-    if (direction === "prev") {
-      setSelectedImage(selectedImage === 0 ? images.length - 1 : selectedImage - 1)
-    } else {
-      setSelectedImage(selectedImage === images.length - 1 ? 0 : selectedImage + 1)
-    }
+    if (selectedGroupIndex === null) return
+    const group = imageGroups[selectedGroupIndex]
+    setSelectedImageIndex((prev) => {
+      if (direction === "prev") return prev === 0 ? group.images.length - 1 : prev - 1
+      return prev === group.images.length - 1 ? 0 : prev + 1
+    })
   }
-
-  // Handle keyboard navigation
-  React.useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (selectedImage === null) return
-
-      if (e.key === "Escape") closeLightbox()
-      if (e.key === "ArrowLeft") navigateImage("prev")
-      if (e.key === "ArrowRight") navigateImage("next")
-    }
-
-    window.addEventListener("keydown", handleKeyDown)
-    return () => window.removeEventListener("keydown", handleKeyDown)
-  }, [selectedImage])
 
   return (
     <section id="gallery" className="py-16">
@@ -85,25 +131,25 @@ export function Gallery() {
           <div className="flex flex-col items-center gap-4 text-center">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Gallery</h2>
             <p className="max-w-[700px] text-muted-foreground md:text-xl">
-              Visual showcase of my projects and design work.
+              Visual showcase of my mobile app project shots including videos.
             </p>
           </div>
         </Reveal>
 
         <StaggerChildren className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
-          {images.map((image, index) => (
-            <StaggerItem key={index}>
+          {imageGroups.map((group, groupIndex) => (
+            <StaggerItem key={groupIndex}>
               <motion.div
                 className="group relative cursor-pointer overflow-hidden rounded-lg"
-                onClick={() => openLightbox(index)}
+                onClick={() => openGroup(groupIndex)}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 transition={{ duration: 0.2 }}
               >
-                <div className="aspect-[4/3] relative">
+                <div className="aspect-[4/4] relative">
                   <Image
-                    src={image.src || "/placeholder.svg"}
-                    alt={image.alt}
+                    src={group.cover}
+                    alt={group.alt}
                     fill
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
                   />
@@ -114,7 +160,7 @@ export function Gallery() {
                   whileHover={{ opacity: 1 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <p className="text-white text-sm">{image.caption}</p>
+                  <p className="text-white text-sm">{group.caption}</p>
                 </motion.div>
               </motion.div>
             </StaggerItem>
@@ -123,7 +169,7 @@ export function Gallery() {
 
         {/* Lightbox */}
         <AnimatePresence>
-          {selectedImage !== null && (
+          {selectedGroupIndex !== null && (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -149,6 +195,50 @@ export function Gallery() {
                   <X className="h-6 w-6" />
                 </Button>
 
+                
+
+                <div className="relative max-h-[80vh] max-w-[80vw]">
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={selectedImageIndex}
+                      initial={{ opacity: 0, x: 100 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -100 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      {imageGroups[selectedGroupIndex].images[selectedImageIndex].type === "image" ? (
+                        <Image
+                          src={imageGroups[selectedGroupIndex].images[selectedImageIndex].src}
+                          alt={imageGroups[selectedGroupIndex].images[selectedImageIndex].alt}
+                          width={800}
+                          height={600}
+                          className="max-h-[80vh] w-auto object-contain"
+                        />
+                      ) : (
+                        <video
+                          controls
+                          className="max-h-[80vh] w-auto object-contain"
+                          autoPlay={true}
+                        >
+                          <source
+                            src={imageGroups[selectedGroupIndex].images[selectedImageIndex].src}
+                            type="video/mp4"
+                          />
+                          Your browser does not support the video tag.
+                        </video>
+                      )}
+
+                      <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2 }}
+                        className="absolute bottom-0 left-0 right-0 bg-black/60 p-4 text-white text-center"
+                      >
+                        {imageGroups[selectedGroupIndex].images[selectedImageIndex].caption}
+                      </motion.p>
+                    </motion.div>
+                  </AnimatePresence>
+                </div>
                 <Button
                   variant="ghost"
                   size="icon"
@@ -160,34 +250,6 @@ export function Gallery() {
                 >
                   <ChevronLeft className="h-8 w-8" />
                 </Button>
-
-                <div className="relative max-h-[80vh] max-w-[80vw]">
-                  <AnimatePresence mode="wait">
-                    <motion.div
-                      key={selectedImage}
-                      initial={{ opacity: 0, x: 100 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -100 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <Image
-                        src={images[selectedImage].src || "/placeholder.svg"}
-                        alt={images[selectedImage].alt}
-                        width={800}
-                        height={600}
-                        className="max-h-[80vh] w-auto object-contain"
-                      />
-                      <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2 }}
-                        className="absolute bottom-0 left-0 right-0 bg-black/60 p-4 text-white text-center"
-                      >
-                        {images[selectedImage].caption}
-                      </motion.p>
-                    </motion.div>
-                  </AnimatePresence>
-                </div>
 
                 <Button
                   variant="ghost"

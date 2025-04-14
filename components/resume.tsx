@@ -9,40 +9,33 @@ import { StaggerChildren, StaggerItem } from "@/components/animations/stagger-ch
 export function Resume() {
   const experiences = [
     {
-      title: "Senior Frontend Developer",
-      company: "Tech Innovations Inc.",
-      period: "2021 - Present",
+      title: "Jr. Software Developer",
+      company: "Krish Technolabs",
+      period: "Sept 2023 - Present",
       description:
-        "Led the development of the company's flagship SaaS product, improving performance by 40%. Mentored junior developers and implemented best practices for code quality.",
+        "I've worked as a Junior Software Developer, primarily focused on frontend development for multiple eCommerce projects. My main responsibility was designing and building scalable, reusable components using React, Next.js, and React Native. From crafting pixel-perfect UIs to optimizing performance and ensuring smooth integration with APIs, I’ve contributed to delivering fast, responsive, and user-friendly experiences across web and mobile platforms.",
     },
     {
-      title: "Full Stack Developer",
-      company: "Digital Solutions Ltd.",
-      period: "2018 - 2021",
+      title: "Internship Trainee",
+      company: "Krish Technolabs",
+      period: "Jan 2023 - Sept 2023",
       description:
-        "Developed and maintained multiple client projects using React, Node.js, and MongoDB. Implemented CI/CD pipelines and improved deployment processes.",
-    },
-    {
-      title: "Junior Web Developer",
-      company: "Creative Agency",
-      period: "2016 - 2018",
-      description:
-        "Created responsive websites for clients across various industries. Collaborated with designers to implement pixel-perfect UIs.",
+        "During my training period, I received hands-on experience with the full stack, including JavaScript, React.js, Node.js, Express, and MongoDB. The program covered both frontend and backend fundamentals, project workflows, and real-world development practices.I consistently performed well throughout the training, actively contributed to team projects, and demonstrated strong problem-solving skills. My dedication and performance led to being offered a Pre-Placement Offer (PPO), marking the start of my professional journey as a Junior Software Developer.",
     },
   ]
 
   const education = [
     {
-      degree: "Master of Computer Science",
-      institution: "Tech University",
-      period: "2014 - 2016",
-      description: "Specialized in Human-Computer Interaction and Web Technologies.",
+      degree: "Bachelor of Technology",
+      institution: "Parul University",
+      period: "2019 - 2023",
+      description: "Graduated in Computer Science Engineering",
     },
     {
-      degree: "Bachelor of Science in Software Engineering",
-      institution: "State University",
-      period: "2010 - 2014",
-      description: "Graduated with honors. Participated in multiple hackathons and coding competitions.",
+      degree: "Higher Secondary",
+      institution: "Ashok Memorial Public School (CBSE)",
+      period: "2018 - 2019",
+      description: "Specialized in Science Stream with Physics, Chemistry and Maths as main subjects.",
     },
   ]
 
@@ -57,7 +50,7 @@ export function Resume() {
             </p>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ duration: 0.2 }}>
               <Button className="mt-4" asChild>
-                <a href="/resume.pdf" download>
+                <a href="Vinayak_Pandey_Resume.pdf" download>
                   <motion.div
                     initial={{ y: 0 }}
                     animate={{ y: [0, -3, 0] }}

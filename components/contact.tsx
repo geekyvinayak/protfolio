@@ -10,7 +10,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { toast } from "@/components/ui/use-toast"
 import { Card, CardContent } from "@/components/ui/card"
-import { Mail, Phone, MapPin, Send } from "lucide-react"
+import { Mail, Phone, MapPin, Send, Linkedin, Github } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Reveal } from "@/components/animations/reveal"
 
@@ -43,45 +43,108 @@ export function Contact() {
     },
   })
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  // const handleSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   setIsSubmitting(true);
+
+  //   try {
+  //     const response = await fetch(
+  //       "https://formsubmit.co/ajax/fintaxionconsulting@gmail.com",
+  //       {
+  //         method: "POST",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //           Accept: "application/json",
+  //         },
+  //         body: JSON.stringify(formData),
+  //       }
+  //     );
+
+  //     if (response.ok) {
+  //       setIsSubmitting(true); // Show success message
+  //     } else {
+  //       alert("Something went wrong. Please try again later.");
+  //     }
+  //   } catch (error) {
+  //     console.error("Form submission error:", error);
+  //     alert("Error submitting the form.");
+  //   }
+
+  //   setIsSubmitting(false);
+  // };
+
+  async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true)
+    
+    try {
+      const response = await fetch(
+        "https://formsubmit.co/ajax/geekyvinayak@gmail.com",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({...values,_template: "table",}),
+        }
+      );
 
-    // Simulate form submission
-    setTimeout(() => {
-      console.log(values)
-      setIsSubmitting(false)
-      setIsSuccess(true)
+      if (response.ok) {
 
-      // Reset success state after 3 seconds
-      setTimeout(() => {
-        setIsSuccess(false)
-        form.reset()
-      }, 3000)
-
+        setIsSubmitting(true); // Show success message
+        setTimeout(() => {
+          setIsSubmitting(false)
+          setIsSuccess(true)
+    
+          // Reset success state after 3 seconds
+          setTimeout(() => {
+            setIsSuccess(false)
+            form.reset()
+          }, 3000)
+    
+          toast({
+            title: "Message sent!",
+            description: "Thank you for your message. I'll get back to you soon.",
+          })
+        }, 1500)
+      } else {
+        toast({
+          title: "Something went wrong!",
+          description: " Please try again later.",
+        })
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
       toast({
-        title: "Message sent!",
-        description: "Thank you for your message. I'll get back to you soon.",
+        title: "Something went wrong!",
+        description: " Please try again later.",
       })
-    }, 1500)
+    }
   }
 
   const contactInfo = [
     {
       icon: <Mail className="h-5 w-5" />,
       title: "Email",
-      value: "alex.johnson@example.com",
-      link: "mailto:alex.johnson@example.com",
+      value: "geekyvinayak@gmail.com",
+      link: "mailto:geekyvinayak@gmail.com",
     },
     {
-      icon: <Phone className="h-5 w-5" />,
-      title: "Phone",
-      value: "+1 (555) 123-4567",
-      link: "tel:+15551234567",
+      icon: <Linkedin className="h-5 w-5" />,
+      title: "Linkedin",
+      value: "ivinayakpandey",
+      link: "https://www.linkedin.com/in/ivinayakpandey/",
+    },
+    {
+      icon: <Github className="h-5 w-5" />,
+      title: "Github",
+      value: "geekyvinayak",
+      link: "https://github.com/geekyvinayak",
     },
     {
       icon: <MapPin className="h-5 w-5" />,
       title: "Location",
-      value: "San Francisco, CA",
+      value: "Ahmedabad Gujarat, IN",
       link: null,
     },
   ]

@@ -1,37 +1,51 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { ExternalLink, Github, Eye } from "lucide-react"
-import Link from "next/link"
-import Image from "next/image"
-import { motion } from "framer-motion"
-import { Reveal } from "@/components/animations/reveal"
-import { StaggerChildren, StaggerItem } from "@/components/animations/stagger-children"
-import { ProjectModal } from "@/components/project-modal"
-import type { ProjectType } from "@/types/project"
+import { useState } from "react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { ExternalLink, Github, Eye } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { Reveal } from "@/components/animations/reveal";
+import {
+  StaggerChildren,
+  StaggerItem,
+} from "@/components/animations/stagger-children";
+import { ProjectModal } from "@/components/project-modal";
+import type { ProjectType } from "@/types/project";
 
 export function Projects() {
-  const [selectedProject, setSelectedProject] = useState<ProjectType | null>(null)
-  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [selectedProject, setSelectedProject] = useState<ProjectType | null>(
+    null
+  );
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const projects: ProjectType[] = [
     {
       id: "Money Tracker",
       title: "Money Tracker",
-      description: "A full-stack MERN application that helps users manage their finances efficiently. It allows users to track income and expenses across multiple wallets and provides valuable insights through a dynamic dashboard.",
-      image: "/MoneyTracker.png?height=300&width=600",
+      description:
+        "A full-stack MERN application that helps users manage their finances efficiently. It allows users to track income and expenses across multiple wallets and provides valuable insights through a dynamic dashboard.",
+      image: "/MoneyTracker.png",
       bannerImage: "/MoneyTracker.png?height=600&width=1200",
-      tags: ["React", "Node.js", "MongoDB"],
+      tags: ["React", "Node.js", "MongoDB","ShadCn Ui"],
       demoUrl: "https://moneytracker-sigma.vercel.app/",
       githubUrl: "https://github.com/geekyvinayak/MoneyTracker",
       readme: `
+# 💰 Money Tracker
+
 **Money Tracker** is a React-based application that helps users manage their finances efficiently. It allows users to track income and expenses across multiple wallets and provides valuable insights through a dynamic dashboard.
 
 ---
-
 ## ✨ Features
 
 - **🔐 Login/Signup:** Secure user authentication to manage personal finance data.  
@@ -88,121 +102,225 @@ The **Today's Budget** is calculated daily at midnight using the formula:
 `,
     },
     {
-      id: "taskmanager",
-      title: "Task Management App",
-      description: "A collaborative task management application with real-time updates.",
-      image: "/placeholder.svg?height=300&width=600",
-      bannerImage: "/placeholder.svg?height=600&width=1200",
-      tags: ["Next.js", "TypeScript", "Prisma", "Socket.io"],
-      demoUrl: "#",
-      githubUrl: "#",
-      readme: `
-# Task Management Application
+      id: "Chitthi",
+      title: "Chitthi",
+      description:
+        "Chitthi is a secure messaging platform where users can send end-to-end encrypted messages. Its unique feature allows users to set their own encryption keys, ensuring that only they can decrypt their messages—providing absolute privacy, even from site administrators.",
+      image: "/Chitthi.png?height=300&width=600",
+      bannerImage: "/Chitthi.png?height=600&width=1200",
+      tags:  ["React", "Node.js", "MongoDB","ShadCn Ui"],
+      demoUrl: "https://chitthi.vercel.app/",
+      githubUrl: "https://github.com/geekyvinayak/Chitthi",
+      readme: `# 📜 Chitthi: Secure Messaging Platform
 
-## Overview
-This collaborative task management application helps teams organize and track their work efficiently. It features real-time updates, task assignments, and progress tracking.
+**Chitthi** is a secure messaging platform where users can send **end-to-end encrypted messages**. Its unique feature allows users to set their own encryption keys, ensuring that only they can decrypt their messages—providing absolute privacy, even from site administrators.
 
-## Key Features
-- **Real-time Collaboration**: See changes as they happen
-- **Task Assignment**: Assign tasks to team members
-- **Due Dates & Reminders**: Never miss a deadline
-- **Comments & Attachments**: Discuss tasks and share files
-- **Kanban Board View**: Visualize workflow
-- **Progress Tracking**: Monitor completion status
+---
 
-## Technical Details
-The application leverages modern web technologies:
+## ✨ Features
 
-- **Frontend**: Next.js, TypeScript, TailwindCSS
-- **Backend**: Next.js API routes
-- **Database**: PostgreSQL with Prisma ORM
-- **Real-time**: Socket.io
-- **Authentication**: NextAuth.js
-- **Storage**: AWS S3 for attachments
+- **🔐 User-Defined Encryption:** Users set and control their encryption keys for messages.  
+- **💬 Secure Messaging:** Messages are encrypted and can only be decrypted with the correct key.  
+- **🛠️ Room-Based Communication:** Create or join rooms for secure individual or group chats.
 
-## Development Challenges
-Implementing real-time synchronization across multiple clients was challenging. We used Socket.io to broadcast changes and implemented an optimistic UI update pattern to ensure a smooth user experience.
+---
 
-## Future Improvements
-- Add time tracking features
-- Implement recurring tasks
-- Create mobile applications
-- Add integration with calendar services
-      `,
+## 📖 User Flow  
+
+### 1️⃣ **Login/Signup**  
+![Screenshot 2024-11-20 at 10 43 39 AM 10 50 57 AM](https://github.com/user-attachments/assets/53fed155-740e-439d-9bee-7b6516b7a80e)
+
+- **Login:** Use your email and password to access your account.  
+- **Signup:** Create a new account by providing your email and password.  
+
+---
+
+### 2️⃣ **Home Page**  
+![Screenshot 2024-11-20 at 10 49 22 AM](https://github.com/user-attachments/assets/98e76f92-9f5a-4f2e-aba0-b18b7923cafb)
+
+- View all the rooms you’ve joined.  
+- Use the navigation bar to **create new rooms** or **join existing ones**.  
+
+---
+
+### 3️⃣ **Create/Join Room**  
+![Screenshot 2024-11-20 at 10 49 45 AM](https://github.com/user-attachments/assets/96723f5f-8f11-4ad8-ba38-e82956c64c48)
+
+
+- **Create Room:** Enter a unique Room ID to create a new room.  
+- **Join Room:** Enter an existing Room ID to join that room.  
+
+---
+
+### 4️⃣ **Room Interface** 
+![Screenshot 2024-11-20 at 10 50 12 AM](https://github.com/user-attachments/assets/a7a4a7fb-9e58-4d21-b0e2-723573e60d25)
+
+- **Send Messages:**  
+  - Enter an encryption key and your message.  
+  - The message is encrypted and sent securely.  
+
+- **Read Messages:**  
+  - Use the correct encryption key to decrypt and read messages.  
+![Screenshot 2024-11-20 at 10 50 23 AM](https://github.com/user-attachments/assets/b06d353a-4d43-42ad-accb-ee0c527763f1)
+---
+
+## 🛡️ Security  
+
+Chitthi prioritizes **privacy and security** with these safeguards:  
+- **Key Ownership:** Encryption keys are managed by users—only you can decrypt your messages.  
+- **Administrator Privacy:** Even site admins cannot access your encrypted content.  
+
+---
+
+## 🚀 How to Use  
+
+### 1. Login or Signup  
+- **Existing Users:** Log in with your email and password.  
+- **New Users:** Sign up to create an account.  
+
+### 2. Navigate to the Home Page  
+- View your joined rooms or create/join rooms using the top navigation bar.  
+
+### 3. Create/Join Rooms  
+- **Create:** Enter a unique Room ID to create a room.  
+- **Join:** Use an existing Room ID to access a room.  
+
+### 4. Securely Chat in Rooms  
+- **Send:** Use an encryption key to secure your messages.  
+- **Read:** Enter the same key to decrypt and read received messages.  
+
+---
+
+## 🤝 Contributing  
+
+Want to contribute to Chitthi? Follow these steps:  
+1. Fork the repository.  
+2. Submit a pull request.  
+3. For major changes, open an issue to discuss your idea.  
+
+---
+
+## 🖥️ Live Demo  
+[Click here to explore Chitthi](https://chitthi.vercel.app/)  
+
+---
+
+### 💡 *Chitthi ensures your privacy, one message at a time!*
+`,
     },
     {
-      id: "portfolio",
-      title: "Portfolio Website",
-      description: "A minimalist portfolio website built with modern web technologies.",
-      image: "/placeholder.svg?height=300&width=600",
-      bannerImage: "/placeholder.svg?height=600&width=1200",
-      tags: ["Next.js", "Tailwind CSS", "Framer Motion"],
-      demoUrl: "#",
-      githubUrl: "#",
+      id: "timeLogger",
+      title: "Time Logger",
+      description:
+         "Keka Time Logger is a smart Chrome extension that gives you clear and detailed insights into your daily logs and time usage. It helps you understand how your time is spent across workdays — empowering you to track productivity effortlessly.",
+      image: "/Kekalogger.png?height=300&width=600",
+      bannerImage: "/TimeLoggerBanner.png?height=600&width=1200",
+      tags:  ["Chrome Extension","Js","Html","CSS"],
+      demoUrl: "https://chromewebstore.google.com/detail/keka-time-logger/dpdfhijiikhcbpkeciiknfffnapajcid?hl=en",
       readme: `
-# Portfolio Website
+# ⏱️ Keka Time Logger: Your Time, Decoded
 
-## Overview
-This minimalist portfolio website showcases my projects and skills using modern web technologies. It features smooth animations, responsive design, and a clean user interface.
+**Keka Time Logger** is a smart Chrome extension that gives you **clear and detailed insights** into your daily logs and time usage. It helps you understand how your time is spent across workdays — empowering you to track productivity effortlessly.
 
-## Key Features
-- **Responsive Design**: Looks great on all devices
-- **Dark/Light Mode**: User preference-based theme
-- **Smooth Animations**: Using Framer Motion
-- **Project Showcase**: Detailed project information
-- **Contact Form**: Easy way to get in touch
-- **Performance Optimized**: Fast loading times
+Currently trusted by users with **over 3,500 daily impressions**!
 
-## Technical Details
-The website is built with:
+---
 
-- **Framework**: Next.js
-- **Styling**: Tailwind CSS
-- **Animations**: Framer Motion
-- **Deployment**: Vercel
-- **Forms**: React Hook Form with validation
-- **Icons**: Lucide React
+## ✨ Features
 
-## Development Challenges
-Creating smooth, performant animations that work well across devices was challenging. I used Framer Motion's capabilities to create animations that enhance the user experience without affecting performance.
+- **📊 Daily Insights:** Visual breakdowns of your logs and time entries.  
+- **📅 Date-wise Filtering:** Easily switch between different days to view specific logs.  
+- **📈 Productivity Metrics:** Spot trends and patterns in your workday.  
+- **⚙️ Simple Interface:** Clean, intuitive UI for seamless tracking.  
+- **🔒 100% Privacy:** Your data stays on your machine — nothing gets sent to servers.
 
-## Future Improvements
-- Add a blog section
-- Implement internationalization
-- Add more interactive elements
-- Create case studies for major projects
-      `,
-    },
-  ]
+---
+
+## 📖 User Flow
+
+### 1️⃣ **Install the Extension**  
+- Add **Keka Time Logger** from the Chrome Web Store.  
+- Pin it for quick access.
+
+---
+
+### 2️⃣ **View Logs**  
+- Click the extension icon to open your dashboard.  
+- Automatically fetches and displays your daily logs.
+
+---
+
+### 3️⃣ **Filter and Analyze**  
+- Select a date to view logs for a specific day.  
+- Review total hours, time gaps, and log count.
+
+---
+
+### 4️⃣ **Gain Insights**  
+- Use your dashboard to monitor work habits.  
+- Improve your focus and time management effortlessly.
+
+---
+
+## 📈 Why Use Keka Time Logger?
+
+- Trusted by hundreds of users every day.  
+- Crosses **3,500+ daily impressions** and growing!  
+- Saves time by summarizing your logs in one click.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Chrome Extensions API**  
+- **JavaScript + HTML + CSS**  
+- **LocalStorage for persistence**  
+
+---
+
+## 🚀 Installation
+
+1. Download the extension from the [Chrome Web Store](#).  
+2. Click “Add to Chrome.”  
+3. Pin the extension for quick access.  
+4. Start tracking your time with zero setup!
+
+---
+### 💡 *Track smarter. Work better. With Keka Time Logger.*
+`
+    }
+  ];
 
   const openModal = (project: ProjectType) => {
-    setSelectedProject(project)
-    setIsModalOpen(true)
-  }
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
 
   const closeModal = () => {
-    setIsModalOpen(false)
-  }
+    setIsModalOpen(false);
+  };
 
   return (
     <section id="projects" className="py-16">
       <div className="container mx-auto px-4 md:px-6">
         <Reveal className="mx-auto">
-          <div className="flex flex-col items-center gap-4 text-center ">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Projects</h2>
+          <div className="flex flex-col items-center gap-4 text-center">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+              Projects
+            </h2>
             <p className="max-w-[700px] text-muted-foreground md:text-xl">
               A selection of my recent work and personal projects.
             </p>
           </div>
         </Reveal>
-
+  
         <StaggerChildren className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, index) => (
             <StaggerItem key={index}>
               <motion.div whileHover={{ y: -5 }} transition={{ duration: 0.2 }}>
-                <Card className="overflow-hidden h-full">
+                <Card className="overflow-hidden h-full flex flex-col">
                   <div className="aspect-video relative overflow-hidden">
-                    <motion.div >
+                    <motion.div>
                       <Image
                         src={project.image || "/placeholder.svg"}
                         alt={project.title}
@@ -213,9 +331,11 @@ Creating smooth, performant animations that work well across devices was challen
                   </div>
                   <CardHeader>
                     <CardTitle>{project.title}</CardTitle>
-                    <CardDescription>{project.description}</CardDescription>
+                    <CardDescription className="h-28 line-clamp-8 overflow-hidden">
+                      {project.description}
+                    </CardDescription>
                   </CardHeader>
-                  <CardContent>
+                  <CardContent className="flex-grow">
                     <div className="flex flex-wrap gap-2">
                       {project.tags.map((tag, tagIndex) => (
                         <Badge key={tagIndex} variant="secondary">
@@ -224,21 +344,37 @@ Creating smooth, performant animations that work well across devices was challen
                       ))}
                     </div>
                   </CardContent>
-                  <CardFooter className="flex justify-between gap-2">
-                    <Button variant="outline" size="sm" asChild className="group">
-                      <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                        <motion.div
-                          initial={{ rotate: 0 }}
-                          whileHover={{ rotate: 15 }}
-                          transition={{ duration: 0.2 }}
-                          className="mr-2"
+                  <CardFooter className="flex justify-between gap-2 mt-auto">
+                    {project.githubUrl && (
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        asChild
+                        className="group"
+                      >
+                        <Link
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
                         >
-                          <Github className="h-4 w-4" />
-                        </motion.div>
-                        Code
-                      </Link>
-                    </Button>
-                    <Button variant="outline" size="sm" className="group" onClick={() => openModal(project)}>
+                          <motion.div
+                            initial={{ rotate: 0 }}
+                            whileHover={{ rotate: 15 }}
+                            transition={{ duration: 0.2 }}
+                            className="mr-2"
+                          >
+                            <Github className="h-4 w-4" />
+                          </motion.div>
+                          Code
+                        </Link>
+                      </Button>
+                    )}
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="group"
+                      onClick={() => openModal(project)}
+                    >
                       <motion.div
                         initial={{ rotate: 0 }}
                         whileHover={{ rotate: 15 }}
@@ -250,7 +386,11 @@ Creating smooth, performant animations that work well across devices was challen
                       Details
                     </Button>
                     <Button size="sm" asChild className="group">
-                      <Link href={project.demoUrl} target="_blank" rel="noopener noreferrer">
+                      <Link
+                        href={project.demoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <motion.div
                           initial={{ rotate: 0 }}
                           whileHover={{ rotate: 15 }}
@@ -269,9 +409,13 @@ Creating smooth, performant animations that work well across devices was challen
           ))}
         </StaggerChildren>
       </div>
-
+  
       {/* Project Modal */}
-      <ProjectModal project={selectedProject} isOpen={isModalOpen} onClose={closeModal} />
+      <ProjectModal
+        project={selectedProject}
+        isOpen={isModalOpen}
+        onClose={closeModal}
+      />
     </section>
-  )
+  );
 }

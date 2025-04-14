@@ -115,12 +115,12 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
 
             {/* Action buttons */}
             <div className={cn("p-4 border-t flex flex-col sm:flex-row gap-2 sm:justify-end", "bg-muted/30")}>
-              <Button variant="outline" asChild>
+            {project.githubUrl &&  <Button variant="outline" asChild>
                 <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                   <Github className="mr-2 h-4 w-4" />
                   View Code
                 </Link>
-              </Button>
+              </Button>}
               <Button asChild>
                 <Link href={project.demoUrl} target="_blank" rel="noopener noreferrer">
                   <ExternalLink className="mr-2 h-4 w-4" />

@@ -6,6 +6,6 @@ export interface ProjectType {
   bannerImage?: string
   tags: string[]
   demoUrl: string
-  githubUrl: string
+  githubUrl?: string
   readme?: string
 }

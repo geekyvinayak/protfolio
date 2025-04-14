@@ -11,32 +11,32 @@ export function Skills() {
     {
       title: "Frontend Development",
       icon: <Layout className="h-8 w-8 mb-2" />,
-      skills: ["HTML/CSS", "JavaScript", "TypeScript", "React", "Next.js", "Vue.js", "Tailwind CSS", "Framer Motion"],
+      skills: ["HTML/CSS", "JavaScript", "TypeScript", "React", "Next.js", "Tailwind CSS"],
     },
     {
       title: "Backend Development",
       icon: <Server className="h-8 w-8 mb-2" />,
-      skills: ["Node.js", "Express", "NestJS", "Python", "Django", "Ruby on Rails", "GraphQL", "REST APIs"],
+      skills: ["Node.js", "Express", "GraphQL", "REST APIs"],
     },
     {
       title: "Database",
       icon: <Database className="h-8 w-8 mb-2" />,
-      skills: ["MongoDB", "PostgreSQL", "MySQL", "Redis", "Firebase", "Supabase", "Prisma", "Mongoose"],
+      skills: ["MongoDB", "PostgreSQL", "MySQL", "Mongoose"],
     },
     {
       title: "Mobile Development",
       icon: <Smartphone className="h-8 w-8 mb-2" />,
-      skills: ["React Native", "Flutter", "iOS (Swift)", "Android (Kotlin)", "Expo", "Ionic"],
+      skills: ["React Native", "Expo"],
     },
     {
       title: "DevOps & Tools",
       icon: <Code className="h-8 w-8 mb-2" />,
-      skills: ["Git", "Docker", "CI/CD", "AWS", "Vercel", "Netlify", "GitHub Actions", "Jest"],
+      skills: ["Git", "Docker", "CI/CD", "AWS", "Vercel", "Netlify", "GitHub Actions"],
     },
     {
       title: "Other Skills",
       icon: <Globe className="h-8 w-8 mb-2" />,
-      skills: ["UI/UX Design", "Figma", "Responsive Design", "SEO", "Performance Optimization", "Accessibility"],
+      skills: ["Figma", "Responsive Design", "SEO", "Performance Optimization", "Accessibility"],
     },
   ]
 
@@ -56,7 +56,7 @@ export function Skills() {
           {skillCategories.map((category, index) => (
             <StaggerItem key={index}>
               <motion.div whileHover={{ y: -5 }} transition={{ duration: 0.2 }}>
-                <Card>
+                <Card className="min-h-52">
                   <CardContent className="p-6">
                     <div className="flex flex-col items-center text-center">
                       <motion.div
