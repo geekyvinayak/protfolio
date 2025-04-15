@@ -26,7 +26,6 @@ export function Navbar() {
     { name: "Contact", href: "#contact" },
   ]
 
-  // Track active section based on scroll position
   React.useEffect(() => {
     const handleScroll = () => {
       const sections = navItems.map((item) => item.href.substring(1))
