@@ -17,7 +17,7 @@ export function Hero() {
             <TextReveal
               text={`Hi, I'm Vinayak`}
               className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl"
-              highlightWords={["Alex", "Johnson"]}
+              highlightWords={["Vinayak", "Pandey"]}
               delay={0.5}
             />
 
