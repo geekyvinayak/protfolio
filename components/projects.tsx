@@ -288,7 +288,27 @@ Currently trusted by users with **over 3,500 daily impressions**!
 ---
 ### 💡 *Track smarter. Work better. With Keka Time Logger.*
 `
-    }
+    },
+    {
+      id: "botIntelli",
+      title: "BotIntelli",
+      description:
+         "A Next.js frontend for an enterprise-grade AI assistant platform, delivering a sleek, component-driven UI built with Shadcn UI and Tailwind CSS. It enables businesses to harness advanced Retrieval-Augmented Generation, stateful multi-LLM conversations (GPT-4, Claude, Mistral, etc.), and visual, trigger-based workflow automation—all through intuitive navigation, interactive demos, and secure integrations with third-party apps. Users can explore specialized AI agents (Legal, Financial Analyst, Marketing, Operations, or custom), manage context-aware document processing with vector databases, and orchestrate no-code automations—empowering industry leaders to deploy AI-powered solutions with ease and confidence.",
+      image: "/botintelli.png",
+      bannerImage: "/botintelli.png",
+      tags:  ["Next Js","Tailwind","Framer Motion","Vercel","Axios","CI/CD"],
+      demoUrl: "https://www.botintelli.com/",
+    },
+    {
+      id: "maitriassociates",
+      title: "Maitri Associates",
+      description:
+         "A modern React frontend developed for Maitri Associates, an architecture and interior design firm. Built with a focus on showcasing their diverse portfolio, the website offers intuitive navigation to explore their architectural designs, office interiors, and residential projects. Engaging visuals and project details provide a comprehensive overview of their expertise. A user-friendly contact form facilitates seamless connection for potential clients seeking innovative design solutions.",
+      image: "/maitriassociates.png",
+      bannerImage: "/maitriassociates.png",
+      tags:  ["Next Js","Tailwind","Framer Motion","Vercel","Axios","CI/CD"],
+      demoUrl: "https://maitriassociates.in/",
+    },
   ];
 
   const openModal = (project: ProjectType) => {

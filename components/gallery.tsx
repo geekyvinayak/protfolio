@@ -151,6 +151,7 @@ export function Gallery() {
                     src={group.cover}
                     alt={group.alt}
                     fill
+                    priority
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                 </div>
@@ -197,7 +198,7 @@ export function Gallery() {
 
                 
 
-                <div className="relative max-h-[80vh] max-w-[80vw]">
+                <div className="relative h-[80vh] max-w-[80vw]">
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={selectedImageIndex}
@@ -212,6 +213,7 @@ export function Gallery() {
                           alt={imageGroups[selectedGroupIndex].images[selectedImageIndex].alt}
                           width={800}
                           height={600}
+                          priority
                           className="max-h-[80vh] w-auto object-contain"
                         />
                       ) : (
