@@ -196,7 +196,7 @@ export function Contact() {
                       <div>
                         <p className="font-medium">{item.title}</p>
                         {item.link ? (
-                          <a href={item.link} className="text-sm text-muted-foreground hover:text-primary">
+                          <a href={item.link} target="blank" className="text-sm text-muted-foreground hover:text-primary">
                             {item.value}
                           </a>
                         ) : (
