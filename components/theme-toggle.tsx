@@ -7,12 +7,16 @@ import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 
 export function ThemeToggle() {
-  const { setTheme } = useTheme()
+  const { setTheme ,theme} = useTheme()
+
+  const handleThemeChange = () => {  
+    let nextTheme =  theme == 'light'?  'dark' :  'light'
+    setTheme(nextTheme)
+  }
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon" aria-label="Toggle theme">
+        <Button variant="ghost" size="icon" aria-label="Toggle theme" onClick={handleThemeChange}>
           <motion.div
             initial={{ rotate: 0 }}
             animate={{ rotate: 360 }}
@@ -24,12 +28,6 @@ export function ThemeToggle() {
           </motion.div>
           <span className="sr-only">Toggle theme</span>
         </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setTheme("light")}>Light</DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("dark")}>Dark</DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("system")}>System</DropdownMenuItem>
-      </DropdownMenuContent>
     </DropdownMenu>
   )
 }
