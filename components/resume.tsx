@@ -34,7 +34,7 @@ export function Resume() {
     {
       degree: "Higher Secondary",
       institution: "Ashok Memorial Public School (CBSE)",
-      period: "2018 - 2019",
+      period: "2017 - 2019",
       description: "Specialized in Science Stream with Physics, Chemistry and Maths as main subjects.",
     },
   ]
