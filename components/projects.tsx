@@ -351,7 +351,7 @@ Currently trusted by users with **over 3,500 daily impressions**!
                   </div>
                   <CardHeader>
                     <CardTitle>{project.title}</CardTitle>
-                    <CardDescription className="h-28 line-clamp-8 overflow-hidden">
+                    <CardDescription className="line-clamp-5 overflow-hidden">
                       {project.description}
                     </CardDescription>
                   </CardHeader>
