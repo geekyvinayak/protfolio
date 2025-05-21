@@ -5,7 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { SmoothScroll } from "@/components/smooth-scroll"
 import type { Metadata } from "next"
 import { Analytics } from "@vercel/analytics/next"
-
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const metadata: Metadata = {
   title: "Vinayak Pandey",
@@ -51,6 +51,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <SmoothScroll>{children}</SmoothScroll>
           <Analytics />
+          <SpeedInsights />
         </ThemeProvider>
       </body>
     </html>
