@@ -271,7 +271,7 @@ export function Gallery() {
                        <Button
                   variant="ghost"
                   size="icon"
-                  className="  text-white hover:bg-white/20 z-20"
+                  className="text-white hover:bg-white/20 z-20"
                   onClick={closeLightbox}
                 >
                   <X className="h-6 w-6" />
