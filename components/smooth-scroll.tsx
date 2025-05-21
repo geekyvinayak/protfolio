@@ -22,7 +22,7 @@ export function SmoothScroll({ children }: SmoothScrollProps) {
 
           if (targetElement) {
             window.scrollTo({
-              top: targetElement.getBoundingClientRect().top + window.scrollY - 80, // Offset for navbar
+              top: targetElement.getBoundingClientRect().top + window.scrollY - 20, // Offset for navbar
               behavior: "smooth",
             })
 
