@@ -195,14 +195,7 @@ export function Gallery() {
                 className="relative w-full max-w-[80vw] h-[80vh] flex flex-col items-center justify-center"
               >
                 {/* Close button always in top-right */}
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="absolute top-4 right-4 text-white hover:bg-white/20 z-20"
-                  onClick={closeLightbox}
-                >
-                  <X className="h-6 w-6" />
-                </Button>
+                
 
                 {/* Loading indicator */}
                 {isLoading && (
@@ -220,7 +213,7 @@ export function Gallery() {
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: -100 }}
                       transition={{ duration: 0.3 }}
-                      className="relative h-full w-full flex items-center justify-center"
+                      className="relative h-full w-full flex  justify-center"
                     >
                       {selectedGroupIndex !== null && imageGroups[selectedGroupIndex].images[selectedImageIndex].type === "image" ? (
                         <div className="relative">
@@ -275,6 +268,14 @@ export function Gallery() {
                           )}
                         </div>
                       )}
+                       <Button
+                  variant="ghost"
+                  size="icon"
+                  className="  text-white hover:bg-white/20 z-20"
+                  onClick={closeLightbox}
+                >
+                  <X className="h-6 w-6" />
+                </Button>
                     </motion.div>
                   </AnimatePresence>
                 </div>
