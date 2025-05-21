@@ -4,7 +4,7 @@ import { Inter } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
 import { SmoothScroll } from "@/components/smooth-scroll"
 import type { Metadata } from "next"
-
+import { Analytics } from "@vercel/analytics/next"
 
 
 export const metadata: Metadata = {
@@ -50,6 +50,7 @@ export default function RootLayout({
       <body >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <SmoothScroll>{children}</SmoothScroll>
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>
