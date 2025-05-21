@@ -57,7 +57,7 @@ export function Hero() {
             className="flex justify-center order-1 md:order-2"
           >
             <ProfileImage
-              src="https://avatars.githubusercontent.com/u/67498083?v=4"
+              src="/profilephoto.jpeg"
               alt="Vinayak Pandey"
               className="w-[280px] md:w-[320px] lg:w-[380px]"
             />
