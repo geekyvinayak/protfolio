@@ -26,29 +26,6 @@ export function Navbar() {
     { name: "Contact", href: "#contact" },
   ]
 
-  React.useEffect(() => {
-    const handleScroll = () => {
-      const sections = navItems.map((item) => item.href.substring(1))
-
-      for (const section of sections.reverse()) {
-        const element = document.getElementById(section)
-        if (element) {
-          const rect = element.getBoundingClientRect()
-          if (rect.top <= 100) {
-            setActiveSection(section)
-            break
-          }
-        }
-      }
-    }
-
-    window.addEventListener("scroll", handleScroll)
-    handleScroll() // Initial check
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll)
-    }
-  }, [navItems])
 
   return (
     <header className="sticky mx-auto top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
