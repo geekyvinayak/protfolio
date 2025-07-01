@@ -71,7 +71,7 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
             className="bg-background rounded-lg shadow-xl w-full max-w-3xl max-h-[90vh] overflow-hidden flex flex-col"
           >
             {/* Banner Image */}
-            <div className="relative w-full h-48 md:h-64">
+            <div className="relative w-full !h-48 md:h-64">
               <Image
                 src={project.bannerImage || project.image}
                 alt={`${project.title} banner`}

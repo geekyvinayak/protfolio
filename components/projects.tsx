@@ -30,6 +30,197 @@ export function Projects() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const projects: ProjectType[] = [
+     {
+      id: "FreelanceOS",
+      title: "FreelanceOS",
+      description:
+        "FreelanceOS is a comprehensive project management tool designed specifically for freelancers and small agencies. Built with modern web technologies, it provides an intuitive interface for managing projects, tracking time, handling invoices, and maintaining client relationships.",
+      image: "/freelanceOs.png",
+      bannerImage: "/freelanceOs.png?height=600&width=1200",
+      tags: [
+  "React",
+  "Supabase", 
+  "Github Actions",
+  "Tailwind CSS",
+  "TypeScript"
+],
+      demoUrl: "https://freelanceos-phi.vercel.app/",
+      githubUrl: "https://github.com/geekyvinayak/freelanceos",
+      readme: `
+# FreelanceOS - Project Management Tool
+
+## 🎯 Overview
+
+FreelanceOS is a comprehensive project management tool designed specifically for freelancers and small agencies. Built with modern web technologies, it provides an intuitive interface for managing projects, tracking time, handling invoices, and maintaining client relationships.
+
+## ✨ Key Features
+
+### 📊 Project Management
+- **Project Dashboard** - Visual overview of all active projects
+- **Project Status Tracking** - Active, completed, on-hold status management
+- **Project Notes** - Detailed note-taking system for each project
+- **Timeline Management** - Track project progress and milestones
+
+### 💰 Billing & Invoicing
+- **Invoice Generation** - Create professional invoices with custom numbering
+- **Payment Tracking** - Monitor paid, pending, and overdue invoices
+- **Project-based Billing** - Link invoices directly to specific projects
+- **Financial Analytics** - Track earnings and payment patterns
+
+### 🤖 AI-Powered Features
+- **Email Assistant** - AI-powered email writing with context awareness
+- **Smart Suggestions** - Intelligent recommendations for project management
+- **Automated Workflows** - Streamline repetitive tasks
+
+### 📱 User Experience
+- **Responsive Design** - Works seamlessly on desktop, tablet, and mobile
+- **Clean Interface** - Modern, minimal design with intuitive navigation
+- **Real-time Updates** - Live data synchronization across all devices
+- **Dark/Light Mode** - Customizable theme preferences
+
+## 🛠 Technology Stack
+
+### Frontend
+- **React** - Modern component-based UI framework
+- **Vite** - Fast build tool and development server
+- **Tailwind CSS** - Utility-first CSS framework
+- **ShadCN UI** - High-quality component library
+
+### Backend & Database
+- **Supabase** - Backend-as-a-Service with PostgreSQL
+- **Row Level Security** - Secure data access policies
+- **Real-time Subscriptions** - Live data updates
+- **Authentication** - Secure user management
+
+### Deployment & Automation
+- **Vercel** - Serverless deployment platform
+- **GitHub Actions** - Automated workflows and CI/CD
+- **Vercel Cron Jobs** - Scheduled background tasks
+
+## 🚀 Features in Detail
+
+### Project Management
+- Create and organize projects with detailed descriptions
+- Track project status (active, completed, on-hold)
+- Add timestamped notes for project documentation
+- Visual project cards with status indicators
+
+### Billing System
+- Generate invoices with automatic numbering (DEM-2023-XXXX)
+- Track invoice status (paid, pending, overdue)
+- Link invoices to specific projects
+- Calculate total earnings and pending amounts
+
+### Demo Data Management
+- Automated demo data reset system
+- Realistic sample projects, notes, and invoices
+- Scheduled data refresh for demonstrations
+- API endpoints for data management
+
+## 🔧 Architecture
+
+### Database Schema
+- **Users** - Authentication and user profiles
+- **Projects** - Project information and metadata
+- **Notes** - Project-related documentation
+- **Bills** - Invoice and payment tracking
+
+### API Endpoints
+- RESTful API design with Supabase
+- Automated demo data reset functionality
+- Secure authentication with JWT tokens
+- Real-time data synchronization
+
+### Security
+- Row Level Security (RLS) policies
+- Service role authentication for admin operations
+- Environment variable management
+- Secure API key handling
+
+## 🎨 Design Philosophy
+
+### User-Centric Design
+- Clean, minimal interface focusing on usability
+- Consistent color palette (blues, whites, greys)
+- Intuitive navigation and workflow
+- Mobile-first responsive design
+
+### Performance Optimization
+- Fast loading times with Vite
+- Optimized database queries
+- Efficient state management
+- Lazy loading for better performance
+
+## 🔄 Automation Features
+
+### Demo Data Management
+- **Automated Reset** - Scheduled demo data refresh every 5 minutes
+- **GitHub Actions** - Workflow automation for data management
+- **Vercel Cron Jobs** - Reliable scheduled task execution
+- **API Integration** - RESTful endpoints for data operations
+
+### Development Workflow
+- **Continuous Deployment** - Automatic deployment on code push
+- **Environment Management** - Separate staging and production environments
+- **Error Monitoring** - Comprehensive logging and error tracking
+
+## 🎯 Target Audience
+
+### Primary Users
+- **Freelancers** - Independent contractors managing multiple clients
+- **Small Agencies** - Teams handling various client projects
+- **Consultants** - Professional service providers
+- **Creative Professionals** - Designers, developers, writers
+
+### Use Cases
+- Project timeline management
+- Client communication tracking
+- Invoice generation and payment tracking
+- Time and resource allocation
+- Financial reporting and analytics
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js 18+ and npm
+- Supabase account and project
+- Vercel account for deployment
+
+### Quick Setup
+1. Clone the repository
+2. Install dependencies with "npm install"
+3. Configure environment variables
+4. Set up Supabase database schema
+5. Deploy to Vercel
+
+### Demo Access
+The application includes a comprehensive demo mode with:
+- 6 sample projects across different industries
+- 15 detailed project notes
+- 9 invoices with various payment statuses
+- Automated data refresh for consistent demos
+
+## 📈 Future Roadmap
+
+### Planned Features
+- **Time Tracking** - Built-in time tracking with project integration
+- **Client Portal** - Dedicated client access for project updates
+- **Advanced Analytics** - Detailed reporting and insights
+- **Mobile App** - Native mobile applications
+- **Integration APIs** - Connect with popular tools and services
+
+### Technical Improvements
+- **Performance Optimization** - Enhanced loading speeds
+- **Offline Support** - Progressive Web App capabilities
+- **Advanced Security** - Enhanced authentication options
+- **Scalability** - Support for larger teams and projects
+
+---
+
+**FreelanceOS** - Empowering freelancers with professional project management tools. Built for the modern workforce, designed for success.
+
+`,
+    },
     {
       id: "Money Tracker",
       title: "Money Tracker",
