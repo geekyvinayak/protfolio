@@ -529,7 +529,7 @@ Currently trusted by users with **over 3,500 daily impressions**!
           {projects.map((project, index) => (
             <StaggerItem key={index}>
               <motion.div whileHover={{ y: -5 }} transition={{ duration: 0.2 }}>
-                <Card className="overflow-hidden h-full flex flex-col">
+                <Card className="overflow-hidden h-full flex flex-col ">
                   <div className="aspect-video relative overflow-hidden">
                     <motion.div>
                       <Image
@@ -546,8 +546,8 @@ Currently trusted by users with **over 3,500 daily impressions**!
                       {project.description}
                     </CardDescription>
                   </CardHeader>
-                  <CardContent className="flex-grow">
-                    <div className="flex flex-wrap gap-2">
+                  <CardContent className="flex-grow h-16">
+                    <div className="flex flex-wrap gap-2 ">
                       {project.tags.map((tag, tagIndex) => (
                         <Badge key={tagIndex} variant="secondary">
                           {tag}
