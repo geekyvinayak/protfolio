@@ -12,6 +12,7 @@ export function Navbar() {
   const isMobile = useMobile()
   const [isOpen, setIsOpen] = React.useState(false)
   const [activeSection, setActiveSection] = React.useState("home")
+  const [isScrolled, setIsScrolled] = React.useState(false)
 
   const toggleMenu = () => {
     setIsOpen(!isOpen)
@@ -29,7 +30,9 @@ export function Navbar() {
   React.useEffect(() => {
     const handleScroll = () => {
       const sections = navItems.map((item) => item.href.substring(1))
-
+      const scrollPosition = window.scrollY
+      setIsScrolled(scrollPosition > 100)
+      
       for (const section of sections.reverse()) {
         const element = document.getElementById(section)
         if (element) {
@@ -51,7 +54,24 @@ export function Navbar() {
   }, [navItems])
 
   return (
-    <header className="sticky mx-auto top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <motion.header
+      className="sticky mx-auto top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+      animate={{
+        maxWidth: isScrolled ? "75%" : "100%",
+        top: isScrolled ? "20px" : "0px",
+        borderRadius: isScrolled ? "12px" : "0px",
+        paddingLeft: isScrolled ? "16px" : "0px",
+        paddingRight: isScrolled ? "16px" : "0px",
+      }}
+      transition={{
+        duration: 0.5,
+        ease: [0.25, 0.1, 0.25, 1], // Custom easing for smooth animation
+        type: "tween"
+      }}
+      style={{
+        willChange: "transform, max-width, top, border-radius, background-color, padding"
+      }}
+    >
       <div className="container mx-auto flex px-2 md:px-0 h-16 items-center justify-between">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
@@ -160,6 +180,6 @@ export function Navbar() {
           </motion.nav>
         )}
       </div>
-    </header>
+    </motion.header>
   )
 }
