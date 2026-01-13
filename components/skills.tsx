@@ -31,12 +31,12 @@ export function Skills() {
     {
       title: "DevOps & Tools",
       icon: <Code className="h-8 w-8 mb-2" />,
-      skills: ["Git", "Docker", "CI/CD", "AWS", "Vercel", "Netlify", "GitHub Actions"],
+      skills: ["Git", "Docker", "CI/CD", "AWS", "Vercel", "Netlify", "GitHub Actions","n8n automations"],
     },
     {
       title: "Other Skills",
       icon: <Globe className="h-8 w-8 mb-2" />,
-      skills: ["Figma", "Responsive Design", "SEO", "Performance Optimization", "Accessibility"],
+      skills: ["Figma","JIRA" ,"Responsive Design", "SEO", "Performance Optimization", "Accessibility"],
     },
   ]
 

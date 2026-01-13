@@ -1,28 +1,38 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { Download, Briefcase, GraduationCap, Circle } from "lucide-react"
-import { motion } from "framer-motion"
-import { Reveal } from "@/components/animations/reveal"
-import { StaggerChildren, StaggerItem } from "@/components/animations/stagger-children"
+import { Button } from "@/components/ui/button";
+import { Download, Briefcase, GraduationCap, Circle } from "lucide-react";
+import { motion } from "framer-motion";
+import { Reveal } from "@/components/animations/reveal";
+import {
+  StaggerChildren,
+  StaggerItem,
+} from "@/components/animations/stagger-children";
 
 export function Resume() {
   const experiences = [
     {
-      title: "Jr. Software Developer",
+      title: "Software Developer",
       company: "Krish Technolabs",
       period: "Sept 2023 - Present",
+      description:
+        "Frontend Software Developer with experience delivering scalable eCommerce applications using React, Next.js, and React Native. Improved performance by up to 30%, reduced UI defects by 25%, and accelerated releases through reusable component architecture and optimized API integrations. Built a cross-platform React Native web application for a pharmaceutical brand, cutting development effort by 40% while maintaining consistent UX.",
+    },
+    {
+      title: "Jr. Software Developer",
+      company: "Krish Technolabs",
+      period: "July 2023 - Sept 2025",
       description:
         "I've worked as a Junior Software Developer, primarily focused on frontend development for multiple eCommerce projects. My main responsibility was designing and building scalable, reusable components using React, Next.js, and React Native. From crafting pixel-perfect UIs to optimizing performance and ensuring smooth integration with APIs, I’ve contributed to delivering fast, responsive, and user-friendly experiences across web and mobile platforms.",
     },
     {
       title: "Internship Trainee",
       company: "Krish Technolabs",
-      period: "Jan 2023 - Sept 2023",
+      period: "Jan 2023 - June 2023",
       description:
         "During my training period, I received hands-on experience with the full stack, including JavaScript, React.js, Node.js, Express, and MongoDB. The program covered both frontend and backend fundamentals, project workflows, and real-world development practices.I consistently performed well throughout the training, actively contributed to team projects, and demonstrated strong problem-solving skills. My dedication and performance led to being offered a Pre-Placement Offer (PPO), marking the start of my professional journey as a Junior Software Developer.",
     },
-  ]
+  ];
 
   const education = [
     {
@@ -35,26 +45,37 @@ export function Resume() {
       degree: "Higher Secondary",
       institution: "Ashok Memorial Public School (CBSE)",
       period: "2017 - 2019",
-      description: "Specialized in Science Stream with Physics, Chemistry and Maths as main subjects.",
+      description:
+        "Specialized in Science Stream with Physics, Chemistry and Maths as main subjects.",
     },
-  ]
+  ];
 
   return (
     <section id="resume" className="py-16 bg-muted/50">
       <div className="container px-4 md:px-6">
         <Reveal className="mx-auto">
           <div className="flex flex-col items-center gap-4 text-center">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Resume</h2>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+              Resume
+            </h2>
             <p className="max-w-[700px] text-muted-foreground md:text-xl">
               My professional journey and educational background.
             </p>
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ duration: 0.2 }}>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.2 }}
+            >
               <Button className="mt-4" asChild>
                 <a href="Vinayak_Pandey_Resume.pdf" download>
                   <motion.div
                     initial={{ y: 0 }}
                     animate={{ y: [0, -3, 0] }}
-                    transition={{ duration: 1, repeat: Number.POSITIVE_INFINITY, repeatDelay: 1 }}
+                    transition={{
+                      duration: 1,
+                      repeat: Number.POSITIVE_INFINITY,
+                      repeatDelay: 1,
+                    }}
                     className="mr-2"
                   >
                     <Download className="h-4 w-4" />
@@ -91,7 +112,12 @@ export function Resume() {
                       initial={{ scale: 0 }}
                       whileInView={{ scale: 1 }}
                       viewport={{ once: true }}
-                      transition={{ type: "spring", stiffness: 300, damping: 20, delay: index * 0.1 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 20,
+                        delay: index * 0.1,
+                      }}
                     >
                       <Circle className="h-2 w-2 text-primary fill-primary" />
                     </motion.div>
@@ -111,7 +137,9 @@ export function Resume() {
                         </span>
                       </div>
                       <p className="text-primary font-medium">{exp.company}</p>
-                      <p className="text-sm text-muted-foreground">{exp.description}</p>
+                      <p className="text-sm text-muted-foreground">
+                        {exp.description}
+                      </p>
                     </motion.div>
                   </div>
                 </StaggerItem>
@@ -143,7 +171,12 @@ export function Resume() {
                       initial={{ scale: 0 }}
                       whileInView={{ scale: 1 }}
                       viewport={{ once: true }}
-                      transition={{ type: "spring", stiffness: 300, damping: 20, delay: index * 0.1 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 20,
+                        delay: index * 0.1,
+                      }}
                     >
                       <Circle className="h-2 w-2 text-primary fill-primary" />
                     </motion.div>
@@ -162,8 +195,12 @@ export function Resume() {
                           {edu.period}
                         </span>
                       </div>
-                      <p className="text-primary font-medium">{edu.institution}</p>
-                      <p className="text-sm text-muted-foreground">{edu.description}</p>
+                      <p className="text-primary font-medium">
+                        {edu.institution}
+                      </p>
+                      <p className="text-sm text-muted-foreground">
+                        {edu.description}
+                      </p>
                     </motion.div>
                   </div>
                 </StaggerItem>
@@ -173,5 +210,5 @@ export function Resume() {
         </div>
       </div>
     </section>
-  )
+  );
 }
