@@ -86,29 +86,40 @@ export function Navbar() {
 
         {isMobile ? (
           <>
-            <Button variant="ghost" size="icon" onClick={toggleMenu} aria-label="Toggle Menu">
-              <AnimatePresence mode="wait" initial={false}>
-                <motion.div
-                  key={isOpen ? "close" : "open"}
-                  initial={{ rotate: -90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: 90, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-                </motion.div>
-              </AnimatePresence>
-            </Button>
+            <div className="flex items-center gap-2">
+              <ThemeToggle />
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={toggleMenu}
+                aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+                aria-expanded={isOpen}
+                aria-controls="mobile-menu"
+              >
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.div
+                    key={isOpen ? "close" : "open"}
+                    initial={{ rotate: -90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: 90, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    {isOpen ? <X className="h-5 w-5" aria-hidden="true" /> : <Menu className="h-5 w-5" aria-hidden="true" />}
+                  </motion.div>
+                </AnimatePresence>
+              </Button>
+            </div>
             <AnimatePresence>
               {isOpen && (
                 <motion.div
+                  id="mobile-menu"
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
                   transition={{ duration: 0.3 }}
                   className="absolute top-16 left-0 right-0 bg-background border-b z-50 overflow-hidden"
                 >
-                  <nav className="container flex flex-col py-4">
+                  <nav className="container flex flex-col py-4" aria-label="Mobile navigation">
                     {navItems.map((item, i) => (
                       <motion.div
                         key={item.name}
@@ -124,19 +135,12 @@ export function Navbar() {
                               : "hover:text-primary"
                           }`}
                           onClick={() => setIsOpen(false)}
+                          aria-current={activeSection === item.href.substring(1) ? "page" : undefined}
                         >
                           {item.name}
                         </Link>
                       </motion.div>
                     ))}
-                    <motion.div
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: navItems.length * 0.1 }}
-                      className="px-4 py-2"
-                    >
-                      <ThemeToggle />
-                    </motion.div>
                   </nav>
                 </motion.div>
               )}
@@ -148,6 +152,7 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, staggerChildren: 0.1, delayChildren: 0.2 }}
             className="flex items-center gap-6"
+            aria-label="Main navigation"
           >
             {navItems.map((item, i) => (
               <motion.div
@@ -156,7 +161,11 @@ export function Navbar() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
               >
-                <Link href={item.href} className="text-sm font-medium relative group">
+                <Link
+                  href={item.href}
+                  className="text-sm font-medium relative group"
+                  aria-current={activeSection === item.href.substring(1) ? "page" : undefined}
+                >
                   <span
                     className={`transition-colors duration-200 ${
                       activeSection === item.href.substring(1)
@@ -171,6 +180,7 @@ export function Navbar() {
                       layoutId="activeSection"
                       className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary"
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                      aria-hidden="true"
                     />
                   )}
                 </Link>

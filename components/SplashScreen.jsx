@@ -8,7 +8,19 @@ export default function SplashScreen() {
   const [show, setShow] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setShow(false), 2000);
+    // Check if user has seen splash screen before
+    const hasSeenSplash = sessionStorage.getItem('hasSeenSplash');
+
+    if (hasSeenSplash) {
+      setShow(false);
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      setShow(false);
+      sessionStorage.setItem('hasSeenSplash', 'true');
+    }, 1500); // Reduced from 2000ms to 1500ms
+
     return () => clearTimeout(timer);
   }, []);
 
@@ -79,6 +91,8 @@ export default function SplashScreen() {
           initial="initial"
           animate="animate"
           exit="exit"
+          role="presentation"
+          aria-hidden="true"
         >
           {/* Stripes */}
           {stripes.map((_, i) => (

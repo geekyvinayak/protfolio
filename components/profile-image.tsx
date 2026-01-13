@@ -9,9 +9,10 @@ interface ProfileImageProps {
   src: string
   alt: string
   className?: string
+  priority?: boolean
 }
 
-export function ProfileImage({ src, alt, className }: ProfileImageProps) {
+export function ProfileImage({ src, alt, className, priority = false }: ProfileImageProps) {
   const [isHovered, setIsHovered] = useState(false)
 
   return (
@@ -37,8 +38,10 @@ export function ProfileImage({ src, alt, className }: ProfileImageProps) {
           alt={alt}
           fill
           className="object-cover"
-          sizes="(max-width: 768px) 100vw, 300px"
-          priority
+          sizes="(max-width: 768px) 280px, (max-width: 1024px) 320px, 380px"
+          priority={priority}
+          quality={90}
+          loading={priority ? "eager" : "lazy"}
         />
       </motion.div>
 

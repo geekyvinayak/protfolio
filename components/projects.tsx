@@ -512,11 +512,11 @@ Currently trusted by **more then 3000 users with over 6,500 daily impressions**!
   };
 
   return (
-    <section id="projects" className="py-16">
+    <section id="projects" className="py-16" aria-labelledby="projects-heading">
       <div className="container mx-auto px-4 md:px-6">
         <Reveal className="mx-auto">
           <div className="flex flex-col items-center gap-4 text-center">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+            <h2 id="projects-heading" className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
               Projects
             </h2>
             <p className="max-w-[700px] text-muted-foreground md:text-xl">
@@ -534,9 +534,12 @@ Currently trusted by **more then 3000 users with over 6,500 daily impressions**!
                     <motion.div>
                       <Image
                         src={project.image || "/placeholder.svg"}
-                        alt={project.title}
+                        alt={`${project.title} - ${project.description.substring(0, 100)}`}
                         fill
                         className="object-cover transition-all"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        quality={85}
+                        loading="lazy"
                       />
                     </motion.div>
                   </div>

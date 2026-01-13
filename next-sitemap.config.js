@@ -2,42 +2,61 @@
 module.exports = {
   siteUrl: 'https://geekyvinayak.tech',
   generateRobotsTxt: true,
-  // optionally exclude certain routes
-  exclude: ['/admin'],
-    additionalPaths: async (config) => {
+  generateIndexSitemap: false,
+  exclude: ['/admin', '/api/*'],
+  robotsTxtOptions: {
+    policies: [
+      {
+        userAgent: '*',
+        allow: '/',
+        disallow: ['/api/', '/admin/'],
+      },
+    ],
+    additionalSitemaps: [
+      'https://geekyvinayak.tech/sitemap.xml',
+    ],
+  },
+  changefreq: 'weekly',
+  priority: 0.7,
+  sitemapSize: 5000,
+  autoLastmod: true,
+  additionalPaths: async (config) => {
     const result = []
 
-    // required value only
-    result.push({ loc: '/#projects'  , changefreq: 'monthly',
-      priority: 0.7, })
-
-    // all possible values
     result.push({
-      loc: '/#skills',
-      changefreq: 'weekly',
-      priority: 0.7,
+      loc: '/#projects',
+      changefreq: 'monthly',
+      priority: 0.8,
       lastmod: new Date().toISOString(),
     })
+
     result.push({
-      loc: '/#gallery',
+      loc: '/#skills',
       changefreq: 'monthly',
       priority: 0.7,
       lastmod: new Date().toISOString(),
     })
+
+    result.push({
+      loc: '/#gallery',
+      changefreq: 'monthly',
+      priority: 0.6,
+      lastmod: new Date().toISOString(),
+    })
+
     result.push({
       loc: '/#resume',
-      changefreq: 'daily',
-      priority: 0.7,
+      changefreq: 'weekly',
+      priority: 0.8,
       lastmod: new Date().toISOString(),
     })
+
     result.push({
       loc: '/#contact',
-      changefreq: 'daily',
+      changefreq: 'monthly',
       priority: 0.7,
       lastmod: new Date().toISOString(),
     })
-
-
 
     return result
   },

@@ -150,11 +150,11 @@ export function Contact() {
   ]
 
   return (
-    <section id="contact" className="py-16">
+    <section id="contact" className="py-16" aria-labelledby="contact-heading">
       <div className="container px-4 md:px-6">
         <Reveal className="mx-auto">
           <div className="flex flex-col items-center gap-4 text-center">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Contact Me</h2>
+            <h2 id="contact-heading" className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Contact Me</h2>
             <p className="max-w-[700px] text-muted-foreground md:text-xl">
               Have a project in mind or want to chat? Feel free to reach out!
             </p>

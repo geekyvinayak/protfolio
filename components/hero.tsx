@@ -10,7 +10,7 @@ import { FadeIn } from "@/components/animations/fade-in"
 
 export function Hero() {
   return (
-    <section id="home" className="py-24 md:py-32">
+    <section id="home" className="py-24 md:py-32" aria-labelledby="hero-heading">
       <div className="container px-4 md:px-6">
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div className="flex flex-col gap-4 text-center md:text-left order-2 md:order-1">
@@ -19,6 +19,7 @@ export function Hero() {
               className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl"
               highlightWords={["Vinayak", "Pandey"]}
               delay={0.5}
+              id="hero-heading"
             />
 
             <FadeIn delay={1.2} direction="up">
@@ -58,8 +59,9 @@ export function Hero() {
           >
             <ProfileImage
               src="/profilephoto.jpeg"
-              alt="Vinayak Pandey"
+              alt="Vinayak Pandey - Full-stack Developer specializing in React, Node.js, and modern web technologies"
               className="w-[280px] md:w-[320px] lg:w-[380px]"
+              priority
             />
           </motion.div>
         </div>

@@ -41,11 +41,11 @@ export function Skills() {
   ]
 
   return (
-    <section id="skills" className="py-16 bg-muted/50">
+    <section id="skills" className="py-16 bg-muted/50" aria-labelledby="skills-heading">
       <div className="container px-4 md:px-6">
         <Reveal className="mx-auto">
           <div className="flex flex-col items-center gap-4 text-center">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Skills</h2>
+            <h2 id="skills-heading" className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Skills</h2>
             <p className="max-w-[700px] text-muted-foreground md:text-xl">
               Technologies and tools I work with on a regular basis.
             </p>
