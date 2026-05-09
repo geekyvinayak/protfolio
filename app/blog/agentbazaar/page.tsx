@@ -125,9 +125,12 @@ export default function AgentBazaarBlog() {
             form filled.
           </p>
 
-          <div className="bg-[#111] border border-[#222] rounded aspect-video my-8 flex items-center justify-center text-[#555] font-mono text-sm">
-            [video coming soon]
-          </div>
+          <video
+            src="/agentbazaar-demo.mp4"
+            className="w-full rounded border border-[#222] my-8"
+            controls
+            playsInline
+          />
 
           <hr className="h-px bg-[#1f1f1f] my-12 border-none" />
 
