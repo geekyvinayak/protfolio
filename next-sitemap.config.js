@@ -58,6 +58,20 @@ module.exports = {
       lastmod: new Date().toISOString(),
     })
 
+    result.push({
+      loc: '/blog',
+      changefreq: 'weekly',
+      priority: 0.8,
+      lastmod: new Date().toISOString(),
+    })
+
+    result.push({
+      loc: '/blog/agentbazaar',
+      changefreq: 'monthly',
+      priority: 0.8,
+      lastmod: '2026-05-09T00:00:00.000Z',
+    })
+
     return result
   },
 };

@@ -1,4 +1,3 @@
-import { Navbar } from "@/components/navbar"
 import { Hero } from "@/components/hero"
 import { Projects } from "@/components/projects"
 import { Skills } from "@/components/skills"
@@ -14,7 +13,6 @@ export default function Home() {
     <div className="min-h-screen bg-background">
       <SkipToContent />
       <SplashScreen />
-      <Navbar />
       <main id="main-content" className="container mx-auto px-4 py-6">
         <Hero />
         <Projects />
