@@ -58,7 +58,7 @@ export function Hero() {
             className="flex justify-center order-1 md:order-2"
           >
             <ProfileImage
-              src="/profilephoto.jpeg"
+              src="/profilephoto.png"
               alt="Vinayak Pandey - Full-stack Developer specializing in React, Node.js, and modern web technologies"
               className="w-[280px] md:w-[320px] lg:w-[380px]"
               priority
